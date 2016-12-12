@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var workplaces:[Workplace] = [Workplace]()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -40,7 +41,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    
+    
+    
+    func load() {
+        let ud = UserDefaults()
+        
+        
+        if let data = ud.object(forKey: "WORKPLACES") as? NSData {
+            let unarchive = NSKeyedUnarchiver.unarchiveObject(with: data as Data)
+            workplaces = unarchive as! [Workplace]
+        }
+        
+        
+        
+//        if let data = ud.object(forKey: "SHIFTS") as? NSData {
+//            let unarchive = NSKeyedUnarchiver.unarchiveObject(with: data as Data)
+//            shifts = unarchive as! [Shift]
+//        }
+    }
 
+    
+    func save() {
+ 
+        let ud = UserDefaults()
 
+        let archive1 = NSKeyedArchiver.archivedData(withRootObject: workplaces)
+        ud.set(archive1, forKey: "WORKPLACES")
+        
+//        let archive2 = NSKeyedArchiver.archivedData(withRootObject: shifts)
+//        ud.set(archive2, forKey: "SHIFTS")
+        
+    }
+ 
+    
 }
 
