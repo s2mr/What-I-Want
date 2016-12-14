@@ -14,9 +14,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     var workplaces:[Workplace] = [Workplace]()
+    var period = Periods.Total
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM"
+        TodayData.month = Int(formatter.string(from: date))!
+        
+        print("Month : \(TodayData.month)")
         return true
     }
 

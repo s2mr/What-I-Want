@@ -54,7 +54,6 @@ class ShiftInputViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let addAction = UIAlertAction(title: "Add", style: .default, handler: { action in
             if ac.textFields![0].text != "" && ac.textFields![1].text != "" {
                 self.ad.workplaces.append((Workplace(workplaceName: ac.textFields![0].text!, hourlyWage: Int(ac.textFields![1].text!)!)))
-//                WorkplaceService.sharedInstance.register(workplaceName: ac.textFields![0].text!, hourlyWage: Int(ac.textFields![1].text!)!)
 
                 self.ad.save()
                 print(self.ad.workplaces.last!.workplaceName)

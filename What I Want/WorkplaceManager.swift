@@ -22,22 +22,9 @@ class WorkplaceManager: NSObject, NSCoding {
         workplaces = coder.decodeObject(forKey: SerializedKey.Workplaces) as! [Workplace]
     }
     
-    //リストを取得
-    func getWorkplaces(){
-        
-        //実際は外部ファイルからステージ情報取得する処理を書きます。
-        //今回はテストなので、直接Stageオブジェクトを４つほど作成
-//        for i in 0...3{
-//            let stage = Stage()
-//            stage_list.append(stage)
-//        }
-        
-    }
-    
     //イニシャライザ
     override init(){
         super.init()
-//        self.getStageList() //stage_listの取得
     }
     
     

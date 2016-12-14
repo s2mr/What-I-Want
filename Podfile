@@ -6,5 +6,4 @@ target 'What I Want' do
   use_frameworks!
 
   # Pods for What I Want
-	pod 'RealmSwift'
 end

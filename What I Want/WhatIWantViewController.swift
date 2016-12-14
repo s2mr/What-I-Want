@@ -49,9 +49,6 @@ class WhatIWantViewController: UIViewController, UITableViewDelegate, UITableVie
         let necessaryHour = Double(necessaryPrice.text!)! / Double(ad.workplaces[indexPath.row].hourlyWage)
         
         cell.detailTextLabel?.text = "あと".appendingFormat("%.0f", necessaryHour)  + "時間"
-        
-//        let a = "".appendingFormat("%.0f", <#T##arguments: CVarArg...##CVarArg#>)
-        
         return cell
     }
     
@@ -65,9 +62,7 @@ class WhatIWantViewController: UIViewController, UITableViewDelegate, UITableVie
         for workplace in ad.workplaces{
             for shift in workplace.shifts {
                 
-                //                let workplaceName = shift.workplaceName
                 let hour = Int(shift.hour)
-                //                let hourWage = getWorkplace(workplaceName: workplaceName).hourlyWage
                 let hourlyWage = workplace.hourlyWage
                 
                 totalSalary += hour * hourlyWage!

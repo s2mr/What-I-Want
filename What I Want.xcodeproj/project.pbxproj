@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2028ED0C1DFEDC5A006A3EF2 /* ChoosePeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028ED0B1DFEDC5A006A3EF2 /* ChoosePeriodViewController.swift */; };
 		204875851DE5B94F007F3CE5 /* Workplace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204875841DE5B94F007F3CE5 /* Workplace.swift */; };
 		204875871DE5B961007F3CE5 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204875861DE5B961007F3CE5 /* Shift.swift */; };
 		205189531DE5B10300A6C243 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205189521DE5B10300A6C243 /* AppDelegate.swift */; };
@@ -16,11 +17,11 @@
 		2051895D1DE5B10300A6C243 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2051895B1DE5B10300A6C243 /* LaunchScreen.storyboard */; };
 		205189651DE5B3E800A6C243 /* ShiftInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205189641DE5B3E800A6C243 /* ShiftInputViewController.swift */; };
 		20EE96451DE7487D00B63668 /* WhatIWantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE96441DE7487D00B63668 /* WhatIWantViewController.swift */; };
-		20EE96471DEAB91100B63668 /* WorkplaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE96461DEAB91100B63668 /* WorkplaceManager.swift */; };
 		443CE6A4D5C017031DC2446A /* Pods_What_I_Want.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 356299C184550F5BF8099C00 /* Pods_What_I_Want.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2028ED0B1DFEDC5A006A3EF2 /* ChoosePeriodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosePeriodViewController.swift; sourceTree = "<group>"; };
 		204875841DE5B94F007F3CE5 /* Workplace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workplace.swift; sourceTree = "<group>"; };
 		204875861DE5B961007F3CE5 /* Shift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shift.swift; sourceTree = "<group>"; };
 		2051894F1DE5B10300A6C243 /* What I Want.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "What I Want.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,7 +33,6 @@
 		2051895E1DE5B10300A6C243 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		205189641DE5B3E800A6C243 /* ShiftInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftInputViewController.swift; sourceTree = "<group>"; };
 		20EE96441DE7487D00B63668 /* WhatIWantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhatIWantViewController.swift; sourceTree = "<group>"; };
-		20EE96461DEAB91100B63668 /* WorkplaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkplaceManager.swift; sourceTree = "<group>"; };
 		356299C184550F5BF8099C00 /* Pods_What_I_Want.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_What_I_Want.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62BA5EB0C9676A33CA29F612 /* Pods-What I Want.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-What I Want.release.xcconfig"; path = "Pods/Target Support Files/Pods-What I Want/Pods-What I Want.release.xcconfig"; sourceTree = "<group>"; };
 		87D3131021359C1121A903AA /* Pods-What I Want.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-What I Want.debug.xcconfig"; path = "Pods/Target Support Files/Pods-What I Want/Pods-What I Want.debug.xcconfig"; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 				204875841DE5B94F007F3CE5 /* Workplace.swift */,
 				204875861DE5B961007F3CE5 /* Shift.swift */,
 				20EE96441DE7487D00B63668 /* WhatIWantViewController.swift */,
-				20EE96461DEAB91100B63668 /* WorkplaceManager.swift */,
+				2028ED0B1DFEDC5A006A3EF2 /* ChoosePeriodViewController.swift */,
 			);
 			path = "What I Want";
 			sourceTree = "<group>";
@@ -231,9 +231,9 @@
 				205189651DE5B3E800A6C243 /* ShiftInputViewController.swift in Sources */,
 				204875851DE5B94F007F3CE5 /* Workplace.swift in Sources */,
 				205189531DE5B10300A6C243 /* AppDelegate.swift in Sources */,
-				20EE96471DEAB91100B63668 /* WorkplaceManager.swift in Sources */,
 				20EE96451DE7487D00B63668 /* WhatIWantViewController.swift in Sources */,
 				204875871DE5B961007F3CE5 /* Shift.swift in Sources */,
+				2028ED0C1DFEDC5A006A3EF2 /* ChoosePeriodViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

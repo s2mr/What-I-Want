@@ -13,6 +13,7 @@ class ShiftManageViewController: UIViewController, UITableViewDelegate, UITableV
     let ad = UIApplication.shared.delegate as! AppDelegate
     
     
+    
     @IBOutlet weak var totalSalaryLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -37,83 +38,99 @@ class ShiftManageViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBAction func inputButtonTapped(_ sender: AnyObject) {
         performSegue(withIdentifier: "toInput", sender: self)
-        
-        /*
-        let vc = ShiftInputViewController()
-        
-//        vc.view.frame = CGRect(vc.view.frame.origin.x + (vc.view.frame.size.width - 600)/2,
-//                                            vc.view.frame.origin.y,
-//                                            600,
-//                                            vc.view.frame.size.height)
-        vc.view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 500)
-//        vc.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin
-        vc.view.autoresizingMask = [.flexibleHeight , .flexibleLeftMargin , .flexibleRightMargin]
-        vc.modalPresentationStyle = .none
-
-        vc.view.superview?.backgroundColor = UIColor.clear
-        
-        present(vc, animated: true, completion: nil)
- */
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return ad.workplaces.count
     }
+
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return ad.workplaces[section].workplaceName
     }
-    
-    
-    /*
-    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        
-        var titles = [String]()
-        
-        for workplace in ad.workplaces {
-            titles.append(workplace.workplaceName)
-        }
-        
-        return titles
-    }
- */
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        
-        return ad.workplaces[section].shifts.count
-        
-//        return getRowsForWorkplaces(workplace: ad.workplaces[section])
+        var count = 0
         
         
-//        return ad.shifts.count
+        
+        for shift in ad.workplaces[section].shifts{
+            
+            let calendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian)
+            
+            var comps:DateComponents = calendar!.components(NSCalendar.Unit.month, from: shift.createdAt)
+            let month = comps.month!
+            
+            switch  ad.period {
+            case Periods.thisMonth:
+                if month == TodayData.month {
+                    count += 1
+                }
+            case Periods.prevMonth:
+                if (TodayData.month - month) == 1{
+                    count += 1
+                }
+            case Periods.Total:
+                count += 1
+            default:
+                count = 0
+            }
+        }
+        
+        print(count)
+        return count
+//        return ad.workplaces[section].shifts.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
         
-        
-//        let shift = ad.shifts[indexPath.row]
-
-        let shift = ad.workplaces[indexPath.section].shifts[indexPath.row]
-        
-        
         let workplace = ad.workplaces[indexPath.section]
+        
+        var count = 0
+        
+        for (index, shift) in workplace.shifts.enumerated()
+        
+        switch ad.period {
+        case Periods.prevMonth:
+            <#code#>
+        case Periods.thisMonth:
+            
+        case Periods.Total:
+        default:
+            <#code#>
+        }
+    
+    
+        let shift = workplace.shifts[indexPath.row]
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy年MM月dd日"
         
         cell.hourLabel.text = doubleToString(num: shift.hour) + "時間"
-//        cell.detailTextLabel?.text = ad.shifts[indexPath.row].createdAt.description
-        
         cell.salaryLabel.text = doubleToString(num: shift.hour * Double(workplace.hourlyWage)) + "円"
-        
         cell.dateLabel.text = dateFormatter.string(from: shift.createdAt)
+        
+        
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .default, title: "削除", handler: { action, indexPath in
+            self.ad.workplaces[indexPath.section].shifts.remove(at: indexPath.row)
+            self.ad.save()
+            tableView.reloadData()
+        })
+        
+        return [deleteAction]
     }
     
     func setup() {
@@ -131,21 +148,6 @@ class ShiftManageViewController: UIViewController, UITableViewDelegate, UITableV
         //エラー処理を書く
         return Workplace(workplaceName: "", hourlyWage: 0)
     }
-    
-    /*
-    func getRowsForWorkplaces(workplace: Workplace) -> Int {
-        
-        var count = 0
-        
-        for shift in ad.workplaces {
-            if shift.workplaceName == workplace.workplaceName {
-                count += 1
-            }
-        }
-        
-        return count
-    }
- */
     
     func getTotalSalary() -> Double {
         var totalSalary = 0.0
