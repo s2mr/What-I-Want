@@ -89,6 +89,8 @@ class ShiftManageViewController: UIViewController, UITableViewDelegate, UITableV
         
         let workplace = ad.workplaces[indexPath.section]
         
+        
+        /*
         var count = 0
         
         for (index, shift) in workplace.shifts.enumerated()
@@ -103,7 +105,7 @@ class ShiftManageViewController: UIViewController, UITableViewDelegate, UITableV
             <#code#>
         }
     
-    
+    */
         let shift = workplace.shifts[indexPath.row]
         
         let dateFormatter = DateFormatter()
